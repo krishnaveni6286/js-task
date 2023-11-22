@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* write the previous programs using different function types*/
+/* 1. program to print sum of the numbers */
+/* using named function */
+        function func(){
+     sum=0; 
+    for(i=0;i<=10;i++){
+    sum=sum+i;
+    }
+    return sum;
+}
+  console.log(func());
+
+  /* using arrow function */
+   var func=()=>{
+      sum=0; 
+    for(i=0;i<=10;i++){
+    sum=sum+i;
+    }
+    return sum;
+  }
+  console.log(func());
+  
+  /* using anonymous function */
+  var a=function(){
+       sum=0; 
+    for(i=0;i<=10;i++){
+    sum=sum+i;
+    }
+    return sum;
+  }
+  console.log(a());
+  
+  /* using imediatly invoked function */
+  var a=(function(){
+      console.log(a())
+      sum=0; 
+    for(i=0;i<=10;i++){
+    sum=sum+i;
+    }
+    return sum;
+      })
+      ()
+  
+console.log("_______________________________________________________")
+      /* 2. program to print sum of the factorials */
+/* using named function */
+
+function name(){
+     fact=1; 
+    for(i=1;i<=10;i++){
+    fact=fact*i;
+    }
+    return fact;
+}
+  console.log(name());
+
+  /* using arrow function */
+   var func=()=>{
+      fact=1; 
+    for(i=1;i<=10;i++){
+    fact=fact*i;
+    }
+    return fact;
+  }
+  console.log(func());
+  
+  /* using anonymous function */
+  var a=function(){
+       fact=1; 
+    for(i=fact;i<=10;i++){
+    fact=fact*i;
+    }
+    return fact;
+  }
+  console.log(a());
+  
+  /* using imediatly invoked function */
+  var a=(function(){
+      console.log(a())
+      fact=1; 
+    for(i=1;i<=10;i++){
+    fact=fact*i;
+    }
+    return fact;
+      })
+      ()
+      console.log("___________________________________________________");
+  /*3.program to print squares of the first 10 numbers */
+  /* using named function */
+    function name1(){
+        for(i=2;i<=10;i++){
+           console.log(i**2)   
+         }
+         return i; 
+        }
+        name1();
+
+         /* using arrow function */
+         var square=()=>{
+            for(i=2;i<=10;i++){
+                console.log(i**2)
+            }
+            return i;
+         }
+       name1(); 
+
+        /* using anonymous function */
+
+        var a=function(){
+                for(i=2;i<=10;i++){
+                    console.log(i**2)
+                }
+                return i;
+        }
+        a();
+ /* using imediatly invoked function */
+ var a=(function(){
+    for(i=2;i<=10;i++)
+    console.log(i**2)
+return i;
+ })
+ ()
+
+ console.log("___________________________________________________ ")
+ 
+ /* write a program to print prime numbers */
+  /* using named function */
+ function prime(){
+    var a=11;
+    var fc=0;
+        for(i=1;i<=a;i++){
+           
+        if(a%i==0){
+           fc++;
+        }
+      }
+      if(fc==2)  {
+        console.log(a+" is a prime number")
+      }
+ return a;
+
+    }
+prime(); 
+
+ /* using arrow function */
+ var a=()=>{
+  var a=13;
+   fc=0;
+   for(i=1;i<=a;i++){
+    if(a%i==0){
+      fc++
+    }
+    }
+    if(fc==2){
+      console.log(a + " is a prime number")
+    }
+
+ }
+ a()
+
+  /* using anonymous function */
+
+ var a=function(){
+  var a=29;
+  fc=0;
+  for(i=1;i<=a;i++){
+    if(a%i==0){
+      fc++
+    }
+  }
+  if(fc==2){
+    console.log(a + " is a prime number")
+  }
+  return a;
+ }
+ a()
+ /* using imediatly invoked function */
+ var a=(function(){
+  var a=30;
+  fc=0;
+  for(i=1;i<=a;i++){
+    if(a%i==0){
+      fc++;
+    }
+  }
+  if(fc==2){
+    console,log(a+" is a prime number")
+  }
+ else{
+  console.log(a + " is not a prime number");
+ }
+ })()
+   
+ /* 3.Write a program that prints the powers of 2 up to 2^10 (1024) using a while loop.*/
+ /* using named function */
+ function power(){
+  var a=2
+  for(b=2;b<=10;b++){
+    console.log(a**b)
+  }
+  return a,b;
+ }
+ power();
+ /* using arrow function */
+var d=()=>{
+  var a=2
+  for(b=0;b<=10;b++){
+    console.log(a**b)
+  }
+  return a,b;
+}
+d()
+
+ /* using anonymous function */
+ var d=function(){
+  var a=2
+  for(b=2;b<=10;b++){
+    console.log(a**b)
+  }
+  return a,b
+ }
+d()
+ /* using immediately invoked function */
+ var d=(function(){
+  var a=2
+  for(b=0;b<10;b++)
+    console.log(a**b)
+  return a,b;
+   })()
+
+    </script>
+</body>
+</html>
