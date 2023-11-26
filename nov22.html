@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* print even numbers using terinary operator */
+        for(i=0; i<10; i+=2){
+  i%2==0?console.log(i + " is even"):console.log("odd");
+}
+/* print even and odd numbers */
+for(i=0; i<10; i++){
+  i%2==0?console.log(i + " is even"):console.log(i+" is odd");
+}
+/* print odd numbers */
+for(i=1; i<10; i+=2){
+  i%2==1?console.log(i + " is odd"):console.log(i+" is even");
+}
+/* print string characters */
+var a="hello"
+    for(i=0;i<a.length;i++){
+        console.log(a[i])
+    }
+
+    /* print vowels in a given string */
+    var a="javascript"
+for(i=0;i<a.length;i++){
+    if(a[i]=="a" || a[i]=="e" || a[i]=="i" || a[i]=="o" || a[i]=="u"){
+        console.log(a[i])
+    }
+}
+
+/* print whether the given string is vowels are consonets using terinary operator*/
+var a="hello world"
+for(i=0;i<a.length;i++){
+   a[i]=="a" || a[i]=="e" || a[i]=="i" || a[i]=="o" || a[i]=="u"? console.log(a[i] + " is vowel"):console.log(a[i] + " is consonant");
+    
+}
+
+
+    </script>
+</body>
+</html>
