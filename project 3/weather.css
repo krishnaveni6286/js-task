@@ -1,0 +1,77 @@
+.card{
+    height: 550px;
+    width: 450px;
+    border: 2px solid black;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url("https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png");
+}
+
+body{
+   
+    background-image: linear-gradient(to right, red , yellow);
+}
+.text{
+   
+    text-align: center;
+    font-size: 40px;
+    color: rgb(206, 206, 224);
+    }
+.card input{
+    border-radius: 10px;
+    text-align: center;
+    position:absolute;
+    
+    left: 70px;
+    height: 40px;
+    width: 250px;
+
+}
+.card button{
+    border-radius: 50%;
+    border: none;
+    position:absolute;
+    left: 165px;
+    top: 107px;
+   
+}
+.card img{
+    border-radius: 50%;
+    position:absolute;
+    left: 170px;
+}
+.weather img{
+    position: absolute;
+    top: 160px;
+}
+.temp{
+    text-align: center;
+    position: relative;
+    top: 125px;
+    font-size: 30px;
+}
+.city{
+    text-align: center;
+    position: relative;
+    top: 110px;
+    font-size: 30px;
+}
+.details img{
+    position: relative;
+    top: 120px;
+    left:60px
+}
+.details p{
+    position:absolute;
+    top: 435px;
+    left:70px
+
+}
+.col2 img{
+    position: relative;
+    top: 70px;
+    left:300px
+}
