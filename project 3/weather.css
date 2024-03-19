@@ -1,30 +1,33 @@
-.card{
+ .card{
     height: 550px;
-    width: 450px;
-    border: 2px solid black;
+    width: 420px;
+    border: none;
     border-radius: 10px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-image: url("https://cdn.pixabay.com/photo/2012/04/14/16/37/sky-34536_1280.png");
-}
+    background-image: url("https://i.pinimg.com/474x/ef/c3/72/efc372ebf3d217bd64e0807bc88ff963.jpg"); 
+    background-size: cover;
+    } 
 
 body{
-   
-    background-image: linear-gradient(to right, red , yellow);
+    background-color: black;
+    height: 100%;
+    background-repeat: no-repeat; 
+    background-size: cover;
 }
+
 .text{
-   
     text-align: center;
     font-size: 40px;
-    color: rgb(206, 206, 224);
+    color: rgb(179, 75, 43);
     }
 .card input{
-    border-radius: 10px;
+    border-radius: 20px;
     text-align: center;
     position:absolute;
-    
+    border: 1px solid black;
     left: 70px;
     height: 40px;
     width: 250px;
@@ -36,42 +39,72 @@ body{
     position:absolute;
     left: 165px;
     top: 107px;
-   
-}
+   }
 .card img{
-    border-radius: 50%;
-    position:absolute;
+    /* border-radius: 50%;  */
+     position:absolute;
     left: 170px;
+    top: 1px;
 }
 .weather img{
     position: absolute;
     top: 160px;
+    left: 110x;
 }
+.weather-icon{
+    position:absolute;
+    left: 130px;
+    }
 .temp{
     text-align: center;
     position: relative;
-    top: 125px;
+    top: 120px;
     font-size: 30px;
 }
 .city{
     text-align: center;
     position: relative;
-    top: 110px;
-    font-size: 30px;
+    top: 85px;
+    font-size: 40px;
 }
 .details img{
     position: relative;
-    top: 120px;
-    left:60px
+    top: 110px;
+    left:77px
 }
 .details p{
     position:absolute;
-    top: 435px;
-    left:70px
-
+    top: 450px;
+    left:85px
 }
 .col2 img{
     position: relative;
-    top: 70px;
-    left:300px
+    top: 65px;
+    left:290px
 }
+.weather {
+    display: none;
+}
+.error{
+    position: absolute;
+    left: 90px;
+    top: 130px;
+    display: none;
+    color: black;
+}
+.changetemp{
+    position: absolute;
+    left: 0px;
+    top: 240px;
+}
+#toggleBtn{
+    position: absolute;
+    left: 130px;
+    height: 40px;
+    width: 150px;
+    border-radius: 20px;
+    background-color: rgb(245, 179, 82);
+}
+
+
+ 
