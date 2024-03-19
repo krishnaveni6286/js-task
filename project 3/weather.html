@@ -1,104 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather forecast</title>
-    <link rel="stylesheet" href="./weather.css">
-</head>
-<body>
-     <div class="card">
-        <div class="search">
+    <link rel="stylesheet" href="./index1.css" />
+  </head>
+  <body>
+    <div class="card">
+      <div class="search">
+        <h1 class="text">Get weather</h1>
 
-            <h1 class="text">Get weather</h1>
+        <input
+          type="text"
+          placeholder="enter city name"
+          spellcheck="false"
+          style="font-size: 20px"
+        />
+        <button>
+          <img
+            src="./New folder/search.png"
+            alt="search"
+            height="30px"
+            width="30px"
+            style="border-radius: 50%"
+          />
+        </button>
+      </div>
+      <div class="error">
+        <p>Invalid city name</p>
+      </div>
+      <br />
+      <div class="weather">
+        <!-- <img src="./New folder/sunny.png"  alt="weather-icon" width="100px" height="100px"> -->
+        <img
+          class="weather-icon"
+          src="./New folder/sunny.png"
+          alt="weather-icon"
+          width="100px"
+          height="100px"
+          style="position: absolute; left: 155px;"
+        
+        
+        />
 
-            <input type="text" placeholder="enter city name" spellcheck="false" style="font-size: 20px;">
-            <button><img src="./New folder/search.png" alt="search" height="30px" width="30px"></button>
+        <h2 class="temp">22°c</h2>
+        <h2 class="city">Hyderabad</h2>
+        <div class="changetemp">
+          <button id="toggleBtn">click to change temp°C to temp°F</button>
         </div>
-        <br>
-        <div class="weather">
-            <img src="./New folder/clear.png"  alt="weather-icon" width="100px" height="100px">
-            
-            <h2 class="temp">22°c</h2>
-            <h2 class="city" >Hyderabad</h2>
-            
-            <div class="details">
-                <div class="col1">
-                    <img src="./New folder/humidity.png" height="50px" width="50px" alt="weather img" >
-                    <div>
-                        <p class="humidity">50%</p>
-                        <p style="  position:absolute;
-                        top: 410px;
-                        left:55px">Humidity</p>
-                    </div>
-                </div>
-                <div class="col2">
-                    <img src="./New folder/wind.png" height="35px" width="35px" alt="wind img">
-                    <div>
-                         <p class="wind"  style=" position: absolute;
-                         top:435px;
-                         left: 300px;">15 km</p>
-                        <p style="  position:absolute;
-                        top: 410px;
-                        left:280px">Wind Speed</p> 
-                    </div>
-                </div>
+
+        <div class="details">
+          <div class="col1">
+            <img
+              src="./New folder/humidity.png"
+              height="50px"
+              width="50px"
+              alt="weather img"
+            />
+            <div>
+              <p class="humidity">50%</p>
+              <p style="position: absolute; top: 425px; left: 70px">Humidity</p>
             </div>
-             
+          </div>
+          <div class="col2">
+            <img
+              src="./New folder/wind.png"
+              height="35px"
+              width="35px"
+              alt="wind img"
+            />
+            <div>
+              <p
+                class="wind"
+                style="position: absolute; top: 450px; left: 280px"
+              >
+                15 km
+              </p>
+              <p style="position: absolute; top: 428px; left: 270px">
+                WindSpeed
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
     <script>
-      
-        const apiKey= "471d9455edd534c1b25522cd09ea5c62"
-      
-        const apiUrl= "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
-        const searchBox =document.querySelector(".search input")
-        const searchBtn =document.querySelector(".search button")
-        const weatherIcon=document.querySelector(".weather-icon")
+      const apiKey = "471d9455edd534c1b25522cd09ea5c62";
+      const apiUrl =
+        "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+      const searchBox = document.querySelector(".search input");
+      const searchBtn = document.querySelector(".search button");
+      const weatherIcon = document.querySelector(".weather img");
+      const card = document.querySelector(".card");
+      const tempElement = document.querySelector(".temp");
 
+      let isCelsius = true;
 
-        async function checkWeather(city){
-            const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
-            var data =await response.json();
+      async function checkWeather(city) {
+        const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
 
-            console.log(data)
+        if (response.status === 404) {
+          document.querySelector(".error").style.display = "block";
+          document.querySelector(".weather").style.display = "none";
+          console.log(data);
+        } else {
+          const data = await response.json();
 
-            document.querySelector(".city").innerText=data.name;
-            document.querySelector(".temp").innerText=Math.round(data.main.temp) + "°c";
-            document.querySelector(".humidity").innerText=data.main.humidity +"%";
-            document.querySelector(".wind").innerText=data.wind.speed+"km/h";
+          document.querySelector(".city").innerText = data.name;
+          //    document.querySelector(".temp").innerText = Math.round(data.main.temp) + "°c";
+          updateTemperature(data.main.temp);
+          document.querySelector(".humidity").innerText =
+            data.main.humidity + "%";
+          document.querySelector(".wind").innerText = data.wind.speed + "km/h";
+          console.log(data);
 
-          
+          const temperature = data.main.temp;
 
-            const weatherIcon = document.querySelector(".weather img");
-    const weatherCondition = data.weather[0].main;
+          if (temperature > 25) {
+            weatherIcon.src = "./New folder/sunny.png";
+            card.style.backgroundImage =
+              "url(https://i.pinimg.com/474x/d2/6e/34/d26e3479c5cee4c24c207bbc0c1e81d3.jpg)";
+          } else if (temperature > 15) {
+            weatherIcon.src = "./New folder/cloudss.png";
+            card.style.backgroundImage =
+              "url(https://i.pinimg.com/474x/82/fd/f4/82fdf4359b577df186008c03504f6d18.jpg)";
+          } else {
+            weatherIcon.src = "./New folder/snow.png";
+            card.style.backgroundImage =
+              "url(https://i.pinimg.com/474x/19/28/32/192832b2cfa9a30fdf9739135bfadf75.jpg)";
+            //    card.style.background = "#4682b4";
+          }
 
-    if (weatherCondition === "Clouds") {
-        weatherIcon.src = "./New folder/clouds.png";
-    } else if (weatherCondition === "Clear") {
-        weatherIcon.src = "./New folder/clear.png";
-    } else if (weatherCondition === "Rain") {
-        weatherIcon.src = "./New folder/rain.png";
-    } else if (weatherCondition === "Drizzle") {
-        weatherIcon.src = "./New folder/drizzle.png";
-    } else if (weatherCondition === "Mist") {
-        weatherIcon.src = "./New folder/mist.png";
-    } else if (weatherCondition === "Haze") {
-        weatherIcon.src = "./New folder/Haze.png";
-     } else {
-        weatherIcon.src = "./New folder/default.png";
-    console.log(data)
- 
-    }
-}
-            
-            searchBtn.addEventListener("click", ()=>{
-            
-            checkWeather(searchBox.value)
+          document.querySelector(".weather").style.display = "block";
+          document.querySelector(".error").style.display = "none";
+        }
+      }
 
-        })
-       
-       </script>
-       
-</body>
+      function updateTemperature(temp) {
+        if (isCelsius) {
+          tempElement.innerText = Math.round(temp) + "°c";
+        } else {
+          const fahrenheit = (temp * 9) / 5 + 32;
+          tempElement.innerText = Math.round(fahrenheit) + "°f";
+        }
+      }
+
+      searchBtn.addEventListener("click", () => {
+        checkWeather(searchBox.value);
+      });
+      document.getElementById("toggleBtn").addEventListener("click", () => {
+        isCelsius = !isCelsius;
+        checkWeather(searchBox.value);
+      });
+    </script>
+  </body>
 </html>
