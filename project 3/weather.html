@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather forecast</title>
-    <link rel="stylesheet" href="./weather.css" />
+    <link rel="stylesheet" href="./index1.css" />
   </head>
   <body>
     <div class="card">
@@ -40,13 +40,17 @@
           width="100px"
           height="100px"
           style="position: absolute; left: 155px;"
-         />
-       <h2 class="temp">22°c</h2>
+        
+        
+        />
+
+        <h2 class="temp">22 °c</h2>
         <h2 class="city">Hyderabad</h2>
         <div class="changetemp">
-          <button id="toggleBtn">click to change temp°C to temp°F</button>
+          <button id="toggleBtn">°C</button>
         </div>
-         <div class="details">
+
+        <div class="details">
           <div class="col1">
             <img
               src="./New folder/humidity.png"
@@ -90,6 +94,7 @@
       const weatherIcon = document.querySelector(".weather img");
       const card = document.querySelector(".card");
       const tempElement = document.querySelector(".temp");
+      const toggleBtn=document.getElementById("toggleBtn")
 
       let isCelsius = true;
 
@@ -114,13 +119,14 @@
           const temperature = data.main.temp;
 
           if (temperature > 25) {
-            weatherIcon.src = "./sunny.png";
+            weatherIcon.src = "./New folder/sunny.png";
             card.style.backgroundImage =
-              "url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCgRofYEnFTsjYiPqA_OpxUnjz_PjbJ7eVPdAPZNM4ltsR2tqLbvSSzxdmimUZ1xYRR10&usqp=CAU)";
+              // "url(https://i.pinimg.com/474x/d2/6e/34/d26e3479c5cee4c24c207bbc0c1e81d3.jpg)";
+              "url( https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCgRofYEnFTsjYiPqA_OpxUnjz_PjbJ7eVPdAPZNM4ltsR2tqLbvSSzxdmimUZ1xYRR10&usqp=CAU)";
           } else if (temperature > 15) {
-            weatherIcon.src = "./cloudss.png";
+            weatherIcon.src = "./New folder/cloudss.png";
             card.style.backgroundImage =
-              "url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJG7I9yH0KjvHxmDuHFOEb2WXbVGDxbqCasA&usqp=CAU)";
+              "url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWUFog8kIbjnkQ_4dm8_LEZRXFY4RRM8x2YLcV8iQsNouS1JvntE6jYMPace8In9upwaM&usqp=CAU)";
           } else {
             weatherIcon.src = "./New folder/snow.png";
             card.style.backgroundImage =
@@ -133,9 +139,10 @@
         }
       }
 
-      function updateTemperature(temp) {
+      function updateTemperature(temp,toggleBtn) {
         if (isCelsius) {
           tempElement.innerText = Math.round(temp) + "°c";
+          
         } else {
           const fahrenheit = (temp * 9) / 5 + 32;
           tempElement.innerText = Math.round(fahrenheit) + "°f";
@@ -143,11 +150,11 @@
       }
 
       searchBtn.addEventListener("click", () => {
-        checkWeather(searchBox.value);
+        checkWeather(searchBox.value,isCelsius);
       });
       document.getElementById("toggleBtn").addEventListener("click", () => {
         isCelsius = !isCelsius;
-          document.getElementById("toggleBtn").textContent = isCelsius ? "°F" : "°C"
+        document.getElementById("toggleBtn").textContent = isCelsius ? "°F" : "°C"
         checkWeather(searchBox.value);
       });
     </script>
