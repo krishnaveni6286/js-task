@@ -1,4 +1,4 @@
- .card{
+.card{
     height: 550px;
     width: 420px;
     border: none;
@@ -38,7 +38,7 @@ body{
     border: none;
     position:absolute;
     left: 165px;
-    top: 107px;
+    top: 105px;
    }
 .card img{
     /* border-radius: 50%;  */
@@ -58,14 +58,14 @@ body{
 .temp{
     text-align: center;
     position: relative;
-    top: 120px;
-    font-size: 30px;
+    top: 130px;
+    font-size: 35px;
 }
 .city{
     text-align: center;
     position: relative;
-    top: 85px;
-    font-size: 40px;
+    top: 95px;
+    font-size: 45px;
 }
 .details img{
     position: relative;
@@ -98,15 +98,12 @@ body{
     top: 240px;
 }
 #toggleBtn{
-   position: absolute;
+    position: absolute;
     top: 50px;
     left: 250px;
     height: 20px;
     width: 25px;
     border-radius: 10px;
     background-color: rgb(245, 179, 82);
-   
 }
 
-
- 
