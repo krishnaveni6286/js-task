@@ -40,17 +40,13 @@
           width="100px"
           height="100px"
           style="position: absolute; left: 155px;"
-        
-        
-        />
-
-        <h2 class="temp">22°c</h2>
+         />
+       <h2 class="temp">22°c</h2>
         <h2 class="city">Hyderabad</h2>
         <div class="changetemp">
           <button id="toggleBtn">click to change temp°C to temp°F</button>
         </div>
-
-        <div class="details">
+         <div class="details">
           <div class="col1">
             <img
               src="./New folder/humidity.png"
@@ -151,6 +147,7 @@
       });
       document.getElementById("toggleBtn").addEventListener("click", () => {
         isCelsius = !isCelsius;
+          document.getElementById("toggleBtn").textContent = isCelsius ? "°F" : "°C"
         checkWeather(searchBox.value);
       });
     </script>
